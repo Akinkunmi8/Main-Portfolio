@@ -1,0 +1,54 @@
+﻿@using MyPortivolio.ViewModel
+@model LoginViewModel
+
+@{
+    ViewData["Tittle"] = " Login page";
+}
+
+
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+        <div class="wrap-login100 p-t-30 p-b-50">
+            <span class="login100-form-title p-b-41">
+                Account Login
+            </span>
+            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" class="login100-form validate-form p-b-33 p-t-5">
+                <div class="form-group">
+                    <label asp-for="UserName" class="col-md-2"></label>
+                    <div class="col-md-10">
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="col-md-2"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <div class=" col-md-10">
+                        <div class="custom-checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" />
+                                @Html.DisplayNameFor(m=>m.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class=" col-md-2  ">
+                        <button type="submit" class="btn btn-success form-control">Sign In</button>
+                    </div>
+                </div>
+                <p>
+                    <a asp-action="Register">Register as new user</a>
+                </p>
+                <p>
+                    <a asp-action="Forgotpassword">Forgot Password</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

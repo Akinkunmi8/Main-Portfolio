@@ -1,0 +1,49 @@
+﻿@model Project
+
+
+@{
+    ViewData["Tittle"] = "Upload File page";
+}
+
+<form asp-action="UploadFile/?handler=Upload" 
+      enctype="multipart/form-data" onsubmit="AJAXSubmit(this);return false;" 
+      method="post">
+    <dl>
+        <dt>
+            <label asp-for="FileDocs">File</label>
+        </dt>
+        <dd>
+            <input asp-for="FileDocs" type="file" 
+                name="Project.FileDocs" />
+        </dd>
+    </dl>
+
+    <input class="btn btn-primary"asp-action="UploadFile" type="submit" value="UploadFile" />
+
+    <div style="margin-top:15px">
+        <output name="result"></output>
+    </div>
+</form>
+
+<script>
+  async function AJAXSubmit (oFormElement) {
+    var resultElement = oFormElement.elements.namedItem("result");
+    const formData = new FormData(oFormElement);
+
+    try {
+    const response = await fetch(oFormElement.action, {
+      method: 'POST',
+      body: formData
+    });
+
+    if (response.ok) {
+      window.location.href = '/';
+    }
+
+    resultElement.value = 'Result: ' + response.status + ' ' + 
+      response.statusText;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+</script>

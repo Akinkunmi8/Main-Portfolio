@@ -1,0 +1,42 @@
+﻿@model Project
+
+@{
+    ViewData["Tittle"] = " Create Project Page";
+}
+
+<h1 class="text-info">Project</h1>
+<form asp-controller="Contact" asp-action="Create" method="post" role="form">
+    <fieldset>
+        <h2>Add New Content</h2>
+        <div class="form-group">
+            <label asp-for="Name" class="form-label mt-4"></label>
+            <input asp-for="Name" id="exampleTodoList" aria-describedby="Todo list help" placeholder="Enter Task">
+            <small id="ProjectHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="form-label mt-4"></label>
+            <input asp-for="Description" id="exampleTodoList" aria-describedby="Todo list help" placeholder="Enter Task">
+            <small id="ProjectHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+            <label asp-for="FileUrl" class="form-label mt-4"></label>
+            <input asp-for="FileUrl" id="exampleTodoList" aria-describedby="Todo list help" placeholder="Enter Task">
+            <small id="ProjectHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+            <label asp-for="FileDocs" class="form-label mt-4"></label>
+            <input asp-for="FileDocs" id="exampleTodoList" aria-describedby="Todo list help" placeholder="Enter Task">
+            <small id="ProjectHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+            <label asp-for="Date" class="form-label mt-4"></label>
+            <input type="date" asp-for="Date" id="exampleTodoList" aria-describedby="Todo list help" placeholder="Enter Task">
+            <small id="dateHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+            <div class=" col-md-2  ">
+                <button type="submit" class="btn btn-success form-control">Create Project</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
